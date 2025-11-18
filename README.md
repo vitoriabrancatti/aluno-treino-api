@@ -1,6 +1,6 @@
 # API de Alunos e Treinos
 
-Aplicacao REST escrita apenas com recursos do JDK e banco H2 embarcado. O objetivo eh expor o CRUD de alunos e seus treinos, demonstrando abstracao, encapsulamento, heranca e polimorfismo.
+Aplicacao REST escrita apenas com recursos do JDK e banco H2 embarcado. O objetivo é expor o CRUD de alunos e seus treinos, demonstrando abstracao, encapsulamento, heranca e polimorfismo.
 
 ## Tecnologias
 - Java 17
