@@ -228,38 +228,55 @@ Sem body.
 
 ```
 src/
- ├─ domain/
- │   ├─ Pessoa.java          → Classe base abstrata
- │   ├─ Aluno.java           → Herda de Pessoa
- │   └─ Treino.java
- │
- ├─ persistence/
- │   ├─ ConnectionFactory.java
- │   ├─ AlunoRepository.java
- │   └─ TreinoRepository.java
- │
- ├─ service/
- │   ├─ AlunoService.java
- │   └─ TreinoService.java
- │
- ├─ http/
- │   ├─ AlunoHandler.java
- │   ├─ TreinoHandler.java
- │   └─ Router.java
- │
- └─ Main.java (ponto de entrada)
+ └─ main/
+     └─ java/
+         └─ com/
+             └─ academia/
+                 ├─ controller/
+                 │   ├─ mapper/
+                 │   │   ├─ AlunoController.java
+                 │   │   └─ TreinoController.java
+                 │
+                 ├─ domain/
+                 │   ├─ Aluno.java
+                 │   └─ Treino.java
+                 │
+                 ├─ dto/
+                 │   ├─ AlunoRequest.java
+                 │   ├─ AlunoResponse.java
+                 │   ├─ ErrorResponse.java
+                 │   ├─ TreinoRequest.java
+                 │   ├─ TreinoResponse.java
+                 │   └─ TreinoSummaryResponse.java
+                 │
+                 ├─ http/
+                 │   ├─ AlunoHandler.java
+                 │   ├─ HttpMethod.java
+                 │   ├─ RequestContext.java
+                 │   ├─ RouteDefinition.java
+                 │   ├─ RouteHandler.java
+                 │   ├─ RouterHandler.java
+                 │   └─ TreinoHandler.java
+                 │
+                 ├─ persistence/
+                 │   ├─ AlunoRepository.java
+                 │   ├─ ConnectionProvider.java
+                 │   ├─ DatabaseFactory.java
+                 │   └─ TreinoRepository.java
+                 │
+                 ├─ service/
+                 │   ├─ validation/
+                 │   │   └─ Validator classes...
+                 │   ├─ AlunoService.java
+                 │   └─ TreinoService.java
+                 │
+                 ├─ util/
+                 │   └─ utilitários diversos...
+                 │
+                 └─ Main.java  (ponto de entrada da aplicação)
 ```
 
 Essa organização garante **separação de responsabilidades**, alto **reuso** e **baixo acoplamento**.
-
----
-
-## Demonstração de Conceitos de POO
-
-* **Abstração:** classe `Pessoa` como modelo geral.
-* **Herança:** `Aluno` estende `Pessoa`.
-* **Polimorfismo:** métodos sobrescritos e tratamento abstrato em serviços.
-* **Encapsulamento:** atributos privados com getters/setters.
 
 ---
 
@@ -281,25 +298,18 @@ Essa organização garante **separação de responsabilidades**, alto **reuso** 
    H2 Database (arquivo)
 ```
 
-* **Handlers**: recebem requisições e chamam os serviços.
-* **Services**: aplicam regras de negócio.
-* **Repositories**: acessam o banco via JDBC.
-* **Domain**: apenas as entidades.
-* **Main**: inicia o servidor e registra as rotas.
+* **Controllers**: fazem a ponte entre os handlers e a regra de negócio, organizando as operações e retornando os DTOs adequados.
+* **Handlers**: recebem e tratam as requisições HTTP, extraem parâmetros e acionam os controladores correspondentes.
+* **Services**: aplicam as regras de negócio e validações da aplicação.
+* **Repositories**: realizam o acesso ao banco de dados via JDBC, executando consultas e persistência.
+* **Domain**: contém exclusivamente as entidades que representam os dados do sistema.
+* **Main**: ponto de entrada da aplicação; inicializa o servidor HTTP e registra todas as rotas.
 
 ---
 
 # Diagrama UML das Entidades
 
 ```
-            Pessoa (abstract)
-          ----------------------
-          - id: Long
-          - nome: String
-          - email: String
-          ----------------------
-                    ↑ extends
-
                 Aluno
           ----------------------
           - idade: int
