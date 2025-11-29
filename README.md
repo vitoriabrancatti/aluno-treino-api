@@ -287,6 +287,8 @@ Essa organização garante **separação de responsabilidades**, alto **reuso** 
         ↓
    Handlers (AlunoHandler, TreinoHandler)
         ↓
+   Controllers (AlunoController, TreinoController)
+        ↓
    [Service Layer]
         ↓
    AlunoService / TreinoService
@@ -296,6 +298,7 @@ Essa organização garante **separação de responsabilidades**, alto **reuso** 
    Repositories (SQL + JDBC)
         ↓
    H2 Database (arquivo)
+
 ```
 
 * **Controllers**: fazem a ponte entre os handlers e a regra de negócio, organizando as operações e retornando os DTOs adequados.
