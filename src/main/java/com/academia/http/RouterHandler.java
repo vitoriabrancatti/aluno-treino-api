@@ -33,8 +33,8 @@ public class RouterHandler implements HttpHandler {
                 } catch (IllegalArgumentException e) {
                     matchedContext.error(400, e.getMessage());
                 } catch (Exception e) {
-                    matchedContext.error(500, "Erro interno");
-                }
+                    matchedContext.error(500, "Erro interno");  
+                }   
                 return;
             }
         }

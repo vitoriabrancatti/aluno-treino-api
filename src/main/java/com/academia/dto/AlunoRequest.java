@@ -5,6 +5,7 @@ public class AlunoRequest {
     private String cpf;
     private String email;
     private int idade;
+    private String objetivo;
 
     public String getNome() {
         return nome;
@@ -37,4 +38,13 @@ public class AlunoRequest {
     public void setIdade(int idade) {
         this.idade = idade;
     }
+
+    public String getObjetivo() {
+        return objetivo;
+    }
+    public void setObjetivo(String objetivo) {
+        this.objetivo = objetivo;
+    }
+
+
 }

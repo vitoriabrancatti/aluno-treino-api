@@ -7,7 +7,7 @@ import java.sql.Statement;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class DatabaseFactory implements ConnectionProvider {
-    private static final String DEFAULT_URL = "jdbc:h2:./data/treinos";
+    private static final String DEFAULT_URL = "jdbc:h2:file:./data/treinos";
     private static final String DEFAULT_USER = "sa";
     private static final String DEFAULT_PASSWORD = "";
 

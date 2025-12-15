@@ -9,6 +9,7 @@ public class AlunoResponse {
     private String email;
     private int idade;
     private List<TreinoSummaryResponse> treinos;
+    private String objetivo;
 
     public Long getId() {
         return id;
@@ -57,4 +58,13 @@ public class AlunoResponse {
     public void setTreinos(List<TreinoSummaryResponse> treinos) {
         this.treinos = treinos;
     }
+
+    public String getObjetivo() {
+        return objetivo;
+    }
+
+    public void setObjetivo(String objetivo) {
+        this.objetivo = objetivo;
+    }
+    
 }
